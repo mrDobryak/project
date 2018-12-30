@@ -1,0 +1,12 @@
+{
+  "name": "project",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/mrDobryak/project.git",
+  "author": "mrDobryak <clainrus@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "parcel ./src/main.js --target=node", 
+    "start": "nodemon ./dist/main.js"
+  }
+}
