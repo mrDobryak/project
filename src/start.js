@@ -1,5 +1,6 @@
 import Person from './classes/Person'
 import Building from './classes/Building'
+import Timer from './classes/Timer'
 
 export default () => {
     let rudneva = new Building('Rudneva 5')
@@ -8,8 +9,9 @@ export default () => {
 
     let vlad = new Person('Vladislav', 25, kirova) 
     let roma = new Person('Roman', 21, rudneva)
+
+    let timer = new Timer()
+    timer.start()
     
-    roma.wakeUp()
-    vlad.setPlace(office)
     console.log("Program started")
 }

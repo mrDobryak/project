@@ -6,7 +6,10 @@
   "author": "mrDobryak <clainrus@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "build": "parcel ./src/main.js --target=node", 
+    "build": "parcel ./src/main.js --target=node",
     "start": "nodemon ./dist/main.js"
+  },
+  "dependencies": {
+    "moment": "^2.23.0"
   }
 }
