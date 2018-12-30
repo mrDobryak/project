@@ -7,7 +7,9 @@ export default () => {
     let office = new Building('Volzskaya 1d')
 
     let vlad = new Person('Vladislav', 25, kirova) 
-    let roma = new Person('Roman', 21, rudneva) 
+    let roma = new Person('Roman', 21, rudneva)
     
+    roma.wakeUp()
+    vlad.setPlace(office)
     console.log("Program started")
 }

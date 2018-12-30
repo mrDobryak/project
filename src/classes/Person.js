@@ -7,9 +7,10 @@ export default class Person {
         this.id = ++id
         this.name = name
         this.age = age
-        this.setPlace(place)
+        this.sleep = true
+        this.setPlace(place, true)
     }
-    setPlace(place = null) {
+    setPlace(place = null, creating = false) {
         if(!(place instanceof Building) && place != null) {
             console.error('Place "' + place + '" is not a building')
             return false
@@ -21,5 +22,12 @@ export default class Person {
         if(this.place != null) {
             this.place.addPerson(this)
         }
+        if(creating === false) {
+            console.log(this.name + ' moved to ' + this.place.address)
+        }
+    }
+    wakeUp() {
+        this.sleep = false
+        console.log(this.name + ' waked up')
     }
 }
