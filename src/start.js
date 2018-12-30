@@ -11,7 +11,18 @@ export default () => {
     let roma = new Person('Roman', 21, rudneva)
 
     let timer = new Timer()
-    timer.start()
     
+    timer.on('10:00', () => roma.wakeUp())
+    timer.on('12:00', () => vlad.wakeUp())
+    
+    timer.on('12:40', () => {
+        roma.setPlace(office)
+        vlad.setPlace(office)
+    })
+
+    timer.on('00:00', () => timer.stop())
+
+    timer.start()
+
     console.log("Program started")
 }
