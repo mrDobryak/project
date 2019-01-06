@@ -3,14 +3,15 @@ import Building from './Building'
 let id = 0
 
 export default class Person {
-    constructor(name, age, place) {
+    constructor(name, age, place, logger) {
         this.id = ++id
         this.name = name
         this.age = age
-        this.sleep = true
+        this.logger = logger
+        this.isSleep = true
         this.setPlace(place, true)
     }
-    setPlace(place = null, creating = false) {
+    setPlace(place = null, isCreating = false) {
         if(!(place instanceof Building) && place != null) {
             console.error('Place "' + place + '" is not a building')
             return false
@@ -22,12 +23,15 @@ export default class Person {
         if(this.place != null) {
             this.place.addPerson(this)
         }
-        if(creating === false) {
-            console.log(this.name + ' moved to ' + this.place.address)
+        if(!isCreating) {
+            this.log('moved to ' + this.place.address)
         }
     }
     wakeUp() {
-        this.sleep = false
-        console.log(this.name + ' waked up')
+        this.isSleep = false
+        this.log('waked up')
+    }
+    log(str) {
+        this.logger.log(this.name + ' ' + str)
     }
 }

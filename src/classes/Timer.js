@@ -1,24 +1,24 @@
 import moment from 'moment'
 
+const SPEED_DEFAULT = 30
+
 export default class Timer {
-    constructor() {
+    constructor(speed = SPEED_DEFAULT) {
         this.date = moment().hour(8).minute(0)
         this.callbacks = []
+        this.speed = speed
     }
     start() {
         this.interval = setInterval(() => {
             this.date.add(1, 'minute')
             this.tick()
-        }, 30)
+        }, this.speed)
     }
     stop() {
         clearInterval(this.interval)
     }
     on(time, func) {
-        this.callbacks.push({
-            time: time,
-            func: func
-        })
+        this.callbacks.push({ time, func })
     }
     tick() {
         let time = this.date.format('HH:mm')
@@ -27,5 +27,8 @@ export default class Timer {
                 callback.func()
             }
         })
+    }
+    getTime() {
+        return this.date.format('HH:mm')
     }
 }
